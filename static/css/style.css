@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+/* CSS from the leaflet-choropleth documentation */
+.legend {
+  color: #555;
+  padding: 6px 8px;
+  font: 12px Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  height:260px;
+  line-height: 35px
+}
+
+.legend h3 {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 4px 14px 7px;
+  color: #555;
+}
+
+.legend span {
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  bottom: 7px;
+  color: #555;
+  margin-left: 30px
+}
+
+.legend i {
+  width: 40px;
+  height: 20px;
+  margin-left: 30px;
+  float: left
+}
