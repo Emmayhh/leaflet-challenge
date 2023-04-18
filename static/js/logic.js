@@ -20,20 +20,20 @@ d3.json(url).then(function(data) {
     console.log(data);
 
     var features = data.features;
-    var earthquake_depth = [];
+    var depths = [];
+    //var [minDepth, maxDepth] = d3.extent(depths);
 
     for (var i = 0; i < features.length; i++) {
         var coordinates = features[i].geometry.coordinates;
         var lat = coordinates[1];
         var lon = coordinates[0];
         var depth = coordinates[2];
-        earthquake_depth.push(depth);
         var properties = features[i].properties;
         var place = properties.place;
         var mag = properties.mag;
         
         // Create a red circle over Dallas.
-        circles = L.circleMarker([lat, lon], {
+        circle = L.circleMarker([lat, lon], {
             color: "grey",
             fillColor: circleColor(depth),
             fillOpacity: 0.75,
@@ -44,10 +44,7 @@ d3.json(url).then(function(data) {
     };
 });
 
-// Create function to determine the radius of the circles
-function circleRadius(mag) {
-    return mag * 5
-};
+function circleRadius(mag) {return mag * 6};
 
 // Create function to select the color to fill the circles
 function circleColor(depth) {
@@ -82,8 +79,6 @@ legend.onAdd = function(map) {
     div.innerHTML += '<i style = "background: #FFB733"></i><span>50 - 70</span><br>';
     div.innerHTML += '<i style = "background: #FF6F33"></i><span>70 - 90</span><br>';
     div.innerHTML += '<i style = "background: #FF5433"></i><span>90+</span><br>';
-
-    
     return div;
 };
 
